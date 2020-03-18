@@ -1,0 +1,13 @@
+spring:
+#数据源的信息
+  datasource:
+    url: jdbc:mysql://cdb-ju9034j0.cd.tencentcdb.com:10051/illness
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 54tanghui
+
+
+
+
+
+

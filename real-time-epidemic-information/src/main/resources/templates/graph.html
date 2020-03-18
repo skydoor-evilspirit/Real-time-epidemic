@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="echarts.min.js"></script>
+</head>
+<body>
+图表页
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height: 400px;"></div>
+
+<!--thymeleaf结合js使用的方式-->
+<script th:inline="javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var dateStr = [[${dateList}]];
+    var confirmStr = [[${confirmList}]];
+    var suspectStr = [[${suspectList}]];
+    //指定图表的配置项和数据
+    var option = {
+        //图形标题
+        title: {
+            text: '疫情趋势图'
+        },
+        // 图形线条说明
+        legend: {
+            data: ['累计确诊', '累计疑似']
+        },
+        xAxis: {
+            data: Json.parse(dateStr)
+        },
+        yAxis: {
+            //代表y轴里面是数值，数值本身是连续的
+            type: 'value'
+        },
+        //列表
+        series: [{
+            name: '累计确诊',
+            type: 'line',
+            data: Json.parse(confirmStr)
+        },
+            {
+                name: '累计疑似',
+                type: 'line',
+                data: Json.parse(suspectStr)
+            }]
+    };
+    //将参数设置进去
+    myChart.setOption(option);
+</script>
+
+</body>
+</html>

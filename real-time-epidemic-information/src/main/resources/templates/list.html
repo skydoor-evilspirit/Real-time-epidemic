@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.css}">
+</head>
+<body>
+<label>
+    <a class="btn btn-sm" th:href="@{/list(l='zh_CN')}">中文</a>
+    <a class="btn btn-sm" th:href="@{/list(l='en_US')}">英语</a>
+</label>
+
+
+<h1 th:text="#{list.show}">数据展示如下：</h1>
+<br>
+
+<table th:forEach="list" class="table table-hover">
+    <thead>
+    <tr>
+        <td th:text="#{list.area}">地区</td>
+        <td th:text="#{list.confirmAdd}">今日新增</td>
+        <td th:text="#{list.confirm}">累计确诊</td>
+        <td th:text="#{list.suspect}">疑似</td>
+        <td th:text="#{list.dead}">死亡</td>
+        <td th:text="#{list.heal}">治愈</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="date:${list}">
+        <td th:text="${date.area}">地区</td>
+        <td th:text="${date.confirmAdd}">今日新增</td>
+        <td th:text="${date.confirm}">累计确诊</td>
+        <td th:text="${date.suspect}">疑似</td>
+        <td th:text="${date.dead}">死亡</td>
+        <td th:text="${date.heal}">治愈</td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

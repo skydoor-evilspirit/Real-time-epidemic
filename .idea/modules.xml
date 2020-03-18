@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Real-time-epidemic.iml" filepath="$PROJECT_DIR$/.idea/Real-time-epidemic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/real-time-epidemic-information/real-time-epidemic-information.iml" filepath="$PROJECT_DIR$/real-time-epidemic-information/real-time-epidemic-information.iml" />
+    </modules>
+  </component>
+</project>
